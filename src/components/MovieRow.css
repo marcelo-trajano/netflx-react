@@ -18,10 +18,10 @@
 .movieRow-item {
   display: inline-block;
   width: 150px;
+  cursor: pointer;
 }
 
 .movieRow-item img {
-  display: inline-block;
   width: 100%;
   transform: scale(0.9);
   transition: all ease 0.2s;
@@ -58,4 +58,11 @@
 .movieRow:hover .movieRow--left,
 .movieRow:hover .movieRow--right {
   opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .movieRow-left,
+  .movieRow-right {
+    opacity: 1;
+  }
 }

@@ -14,7 +14,7 @@ export default () => {
     const getMovieList = async () => {
       let movieList = await Api.getHomeList();
 
-      //setitems(movieList);
+      setitems(movieList);
 
       let originals = movieList.filter((i) => i.slug === "originals");
       let randomMovie = Math.floor(
@@ -25,7 +25,7 @@ export default () => {
         "tv"
       );
       console.log(movie.info);
-      //setfeatureMovie(movie.info);
+      setfeatureMovie(movie.info);
     };
     getMovieList();
   }, []);
@@ -66,9 +66,11 @@ export default () => {
         Copyright © 2020 Netflix. All Rights Reserved.
         <br />
       </footer>
-      <div className="loading">
-        <img src="https://cdn.lowgif.com/small/0534e2a412eeb281-the-counterintuitive-tech-behind-netflix-s-worldwide.gif" />
-      </div>
+      {items.length <= 0 && (
+        <div className="loading">
+          <img src="https://cdn.lowgif.com/small/0534e2a412eeb281-the-counterintuitive-tech-behind-netflix-s-worldwide.gif" />
+        </div>
+      )}
     </div>
   );
 };
